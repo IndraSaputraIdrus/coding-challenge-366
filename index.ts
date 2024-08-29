@@ -19,11 +19,11 @@ for await (const line of console) {
     message = `${line}`
   }
 
-  const add = await runCmd("git add .")
-  const commit = await runCmd(`git commit -m "${message}"`)
-  const push = await runCmd("git push")
+  await runCmd("git add .")
+  await runCmd(`git commit -m "${message}"`)
+  await runCmd("git push")
 
-  console.log({ add, commit, push })
+  console.log({ message: "Success" })
 
   break
 }
