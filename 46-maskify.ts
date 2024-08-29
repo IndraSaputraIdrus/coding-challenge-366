@@ -1,3 +1,5 @@
+//https://www.codewars.com/kata/5412509bd436bd33920011bc
+
 export const maskify = (cc: string): string => {
   const mask = cc.substring(-4).replaceAll(/./g, "#")
   const fourLastCharacter = cc.substring(cc.length - 4)
