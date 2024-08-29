@@ -3,7 +3,7 @@ import { exec } from "node:child_process"
 const runCmd = (cmd: string) => new Promise((resolve, reject) => {
   exec(cmd, (error, stdout) => {
     if (error) reject(error)
-    resolve(console.log(stdout))
+    resolve(stdout)
   })
 })
 
@@ -19,9 +19,11 @@ for await (const line of console) {
     message = `${line}`
   }
 
-  await runCmd("git add .")
-  await runCmd(`git commit -m "${message}"`)
-  await runCmd("git push")
+  const add = await runCmd("git add .")
+  const commit = await runCmd(`git commit -m "${message}"`)
+  const push = await runCmd("git push")
+
+  console.log({ add, commit, push })
 
   break
 }
