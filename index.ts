@@ -3,7 +3,7 @@ import { exec } from "node:child_process"
 const runCmd = (cmd: string) => new Promise((resolve, reject) => {
   exec(cmd, (error, stdout) => {
     if (error) reject(error)
-    resolve(process.stdout.write(stdout))
+    resolve(console.log(stdout))
   })
 })
 
